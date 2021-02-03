@@ -10,12 +10,63 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_02_200801) do
+ActiveRecord::Schema.define(version: 2021_02_03_203527) do
+
+  create_table "articles", charset: "utf8mb4", force: :cascade do |t|
+    t.integer "page_id"
+    t.string "name"
+    t.integer "position"
+    t.boolean "visible", default: true
+    t.text "content_text"
+    t.string "images_file_name"
+    t.string "images_content_type"
+    t.bigint "images_file_size"
+    t.datetime "images_updated_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "categories", charset: "utf8mb4", force: :cascade do |t|
     t.string "name", limit: 50
     t.integer "position"
     t.boolean "visible"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "galeries", charset: "utf8mb4", force: :cascade do |t|
+    t.string "name", limit: 20
+    t.integer "position"
+    t.text "description"
+    t.boolean "visibly", default: true
+    t.string "photos_file_name"
+    t.string "photos_content_type"
+    t.bigint "photos_file_size"
+    t.datetime "photos_updated_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "pages", charset: "utf8mb4", force: :cascade do |t|
+    t.integer "category_id"
+    t.string "name"
+    t.integer "position"
+    t.boolean "visible", default: true
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_pages_on_category_id"
+  end
+
+  create_table "photos", charset: "utf8mb4", force: :cascade do |t|
+    t.integer "galery_id"
+    t.string "name"
+    t.integer "position"
+    t.boolean "visible", default: true
+    t.string "description"
+    t.string "photo_file_name"
+    t.string "photo_content_type"
+    t.bigint "photo_file_size"
+    t.datetime "photo_updated_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
