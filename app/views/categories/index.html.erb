@@ -1,0 +1,26 @@
+<h1>Categories</h1>
+<%= link_to("Dodaj nową kategorie", "#") %>
+<p>Ilość kategorii: <% @category.size %></p>
+
+
+<table>
+  <tr>
+    <th>Pozycja</th>
+    <th>Nazwa kategorii</th>
+    <th>Widoczna</th>
+    <th>Strony</th>
+    <th>Akcja</th>
+  </tr>
+  <% @category.each do | categoryList | %>
+
+  <tr>
+    <th><%= categoryList.position %>></th>
+    <th><%= categoryList.name %></th>
+    <th><% categoryList.visible ? "Tak" : "Nie" %></th>
+    <th><% categoryList.pages.size %>></th>
+    <th><% link_to("Pokaż", "#") %></th>
+    <th><% link_to("Edycja", "#") %></th>
+    <th><% link_to("") %></th>
+  </tr>
+  <% end %>
+</table>
