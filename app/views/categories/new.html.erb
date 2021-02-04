@@ -1,2 +1,20 @@
-<h1>Categories#new</h1>
-<p>Find me in app/views/categories/new.html.erb</p>
+<h1>Nowa kategoria</h1>
+
+<%= link_to("Powrót", :action => 'index') %>
+
+<%= form_for(:category, :url => {:action => 'create'}) do |field| %>
+  <table>
+    <tr>
+      <th><%=field.label(:name) %></th>
+      <th><%= field.text_field(:name) %></th>
+
+      <th><%= field.label(:position) %></th>
+      <th> <%= field.select(:position, 1..@counter) %></th>
+      <th><%= field.label(:visible, "Czy jest widoczna?") %></th>
+      <td><% field.check_box(:visible) %></td>
+    </tr>
+  </table>
+
+  <div><%= submit_tag("Wyslij") %></div>
+
+<% end %>
