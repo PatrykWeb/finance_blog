@@ -14,13 +14,13 @@
   <% @category.each do | categoryList | %>
 
   <tr>
-    <th><%= categoryList.position %>></th>
+    <th><%= categoryList.position %></th>
     <th><%= categoryList.name %></th>
-    <th><% categoryList.visible ? "Tak" : "Nie" %></th>
-    <th><% categoryList.pages.size %>></th>
-    <th><% link_to("Pokaż", "#") %></th>
-    <th><% link_to("Edycja", "#") %></th>
-    <th><% link_to("") %></th>
+    <th><%= categoryList.visible ? "Tak" : "Nie" %></th>
+    <th><%= categoryList.pages.size %></th>
+    <th><%= link_to("Pokaż", :action => "show", :id => categoryList.id) %></th>
+    <th><%= link_to("Edycja", "#") %></th>
+    <th><%= link_to("Usuń", :action => "delete", :id => categoryList.id) %></th>
   </tr>
   <% end %>
 </table>

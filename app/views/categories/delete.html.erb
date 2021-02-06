@@ -1,2 +1,13 @@
-<h1>Categories#delete</h1>
-<p>Find me in app/views/categories/delete.html.erb</p>
+<h1>Usunięcie kategorii</h1>
+
+<%= link_to("Powrót", :action => 'index') %>
+
+<%= form_for(:category, :url => {:action => 'delete_category', :id => @category.id}) do |form| %>
+
+  <p>Czy na pewno mam usunąć kategorie?</p>
+  <p><%= @category.name %></p>
+
+  <div>
+    <%= submit_tag("Usuń") %>
+  </div>
+<% end %>

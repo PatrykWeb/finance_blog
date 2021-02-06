@@ -11,7 +11,7 @@
       <th><%= field.label(:position) %></th>
       <th> <%= field.select(:position, 1..@counter) %></th>
       <th><%= field.label(:visible, "Czy jest widoczna?") %></th>
-      <td><% field.check_box(:visible) %></td>
+      <td><%= field.check_box(:visible) %></td>
     </tr>
   </table>
 

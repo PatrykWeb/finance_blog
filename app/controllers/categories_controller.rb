@@ -4,10 +4,12 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    @category = Category.find(params[:id])
   end
 
   def new
     @counter = Category.count + 1
+    @category = Category.new({:name => "Podaj nazwe kategorii"})
   end
 
   def create
@@ -28,5 +30,11 @@ class CategoriesController < ApplicationController
   end
 
   def delete
+    @category = Category.find(params[:id])
+  end
+
+  def delete_category
+    category = Category.find(params[:id]).destroy
+    redirect_to(:action => "index")
   end
 end
