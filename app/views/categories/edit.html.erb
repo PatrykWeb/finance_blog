@@ -1,2 +1,27 @@
-<h1>Categories#edit</h1>
-<p>Find me in app/views/categories/edit.html.erb</p>
+<h1>Edytowanie kategorii</h1>
+
+<%= link_to("Powrót", :action => 'index') %>
+
+
+<%= form_for(:category, :url => {:action => 'edit_category', :id => @category.id}) do |form| %>
+
+  <table>
+    <tr>
+      <th><%= form.label(:name) %></th>
+      <th><%= form.text_field(:name) %></th>
+    </tr>
+    <tr>
+      <th><%= form.label(:position) %></th>
+      <th><%= form.select(:position, 1..@count_category) %></th>
+    </tr>
+    <tr>
+      <th><%= form.label(:visible, "Czy jest widoczna?") %></th>
+      <th><%= form.check_box(:visible) %></th>
+    </tr>
+  </table>
+
+  <div>
+    <%= submit_tag('Zaaktualizuj') %>
+  </div>
+
+<% end %>
