@@ -28,11 +28,11 @@ class CategoriesController < ApplicationController
   end
 
   def edit_category
-    @category = Category.find(params[:id])
-    if @category.update_attributes(category_parametr)
-      redirect_to(:action => "show", :id => @category.id)
+    find_id
+    if find_id.update(category_parametr)
+      redirect_to(:action => "show", :id => find_id)
     else
-      @count_category = Category.count
+      @count_category
     end
   end
 
