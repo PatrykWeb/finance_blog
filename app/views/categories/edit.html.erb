@@ -1,18 +1,16 @@
 <h1>Edytowanie kategorii</h1>
 
-<%= link_to("Powrót", :action => 'index') %>
-
 
 <%= form_for(:category, :url => {:action => 'edit_category', :id => @category.id}) do |form| %>
 
-  <table>
+  <table class="table table-striped">
     <tr>
       <th><%= form.label(:name) %></th>
-      <th><%= form.text_field(:name) %></th>
+      <th><%= form.text_field(:name, :class => "form-control") %></th>
     </tr>
     <tr>
       <th><%= form.label(:position) %></th>
-      <th><%= form.select(:position, 1..@count_category) %></th>
+      <th><%= form.select(:position, 1..@count_category, :class => 'form-control') %></th>
     </tr>
     <tr>
       <th><%= form.label(:visible, "Czy jest widoczna?") %></th>
@@ -21,7 +19,8 @@
   </table>
 
   <div>
-    <%= submit_tag('Zaaktualizuj') %>
+    <%= submit_tag('Zaaktualizuj', :class => "btn btn-primary") %>
+    <%= link_to("Powrót", {:action => 'index'}, :class => 'btn btn-warning') %>
   </div>
 
 <% end %>

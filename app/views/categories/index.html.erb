@@ -19,10 +19,10 @@
     <td><%= categoryList.name %></td>
     <td class="align-content-center"><%= categoryList.visible ? "Tak" : "Nie" %></td>
     <td><%= categoryList.pages.size %></td>
-    <td class = "">
-      <%= link_to("Pokaż", :action => "show", :id => categoryList.id) %>
-      <%= link_to("Edycja", :action => 'edit', :id => categoryList.id) %>
-      <%= link_to("Usuń", :action => "delete", :id => categoryList.id) %>
+    <td>
+      <%= link_to("Pokaż", {:action => "show", :id => categoryList.id}, :class => 'btn btn-success') %>
+      <%= link_to("Edycja", {:action => 'edit', :id => categoryList.id}, :class => 'btn btn-xs btn-primary') %>
+      <%= link_to("Usuń", {:action => "delete", :id => categoryList.id}, :class => 'btn btn-danger') %>
     </td>
   </tr>
   <% end %>

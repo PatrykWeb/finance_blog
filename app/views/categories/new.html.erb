@@ -1,9 +1,9 @@
 <h1>Nowa kategoria</h1>
 
-<%= link_to("Powrót", :action => 'index') %>
+<%= link_to("Powrót", {:action => 'index'}, :class => 'btn btn-warning') %>
 
 <%= form_for(:category, :url => {:action => 'create'}) do |field| %>
-  <table>
+  <table class="table table-striped">
     <tr>
       <th><%=field.label(:name) %></th>
       <th><%= field.text_field(:name) %></th>

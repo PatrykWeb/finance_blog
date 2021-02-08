@@ -1,7 +1,8 @@
 <h1>Pokaz kategorie</h1>
-<%= link_to("Powrót", :action => "index") %>
+<%= link_to("Powrót", {:action => "index"}, :class => 'btn btn-warning') %>
 
-<table>
+
+<table class="table table-striped">
   <tr>
     <th>Nazwa</th>
     <td><%= @category.name %></td>

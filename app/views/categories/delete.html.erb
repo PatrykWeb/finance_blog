@@ -1,6 +1,6 @@
 <h1>Usunięcie kategorii</h1>
 
-<%= link_to("Powrót", :action => 'index') %>
+
 
 <%= form_for(:category, :url => {:action => 'delete_category', :id => @category.id}) do |form| %>
 
@@ -9,5 +9,6 @@
 
   <div>
     <%= submit_tag("Usuń") %>
+    <%= link_to("Powrót", {:action => 'index'}, :class => 'btn btn-warning') %>
   </div>
 <% end %>
