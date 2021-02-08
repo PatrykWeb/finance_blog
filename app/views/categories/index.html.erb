@@ -1,10 +1,11 @@
+<div class="hero-unit">
 <h1>Categories</h1>
-<%= link_to("Dodaj nową kategorie", :action => :new) %>
-<p>Ilość kategorii: <% @category.size %></p>
+<%= link_to("Dodaj nową kategorie", {:action => :new}, :class => 'btn btn-mini btn-primary') %>
+<p style="text-align: right">Ilość kategorii: <% @category.size %></p>
 
 
-<table>
-  <tr>
+<table class="table table-striped">
+  <tr class="table-info">
     <th>Pozycja</th>
     <th>Nazwa kategorii</th>
     <th>Widoczna</th>
@@ -14,13 +15,16 @@
   <% @category.each do | categoryList | %>
 
   <tr>
-    <th><%= categoryList.position %></th>
-    <th><%= categoryList.name %></th>
-    <th><%= categoryList.visible ? "Tak" : "Nie" %></th>
-    <th><%= categoryList.pages.size %></th>
-    <th><%= link_to("Pokaż", :action => "show", :id => categoryList.id) %></th>
-    <th><%= link_to("Edycja", :action => 'edit', :id => categoryList.id) %></th>
-    <th><%= link_to("Usuń", :action => "delete", :id => categoryList.id) %></th>
+    <td><%= categoryList.position %></td>
+    <td><%= categoryList.name %></td>
+    <td class="align-content-center"><%= categoryList.visible ? "Tak" : "Nie" %></td>
+    <td><%= categoryList.pages.size %></td>
+    <td class = "">
+      <%= link_to("Pokaż", :action => "show", :id => categoryList.id) %>
+      <%= link_to("Edycja", :action => 'edit', :id => categoryList.id) %>
+      <%= link_to("Usuń", :action => "delete", :id => categoryList.id) %>
+    </td>
   </tr>
   <% end %>
 </table>
+</div>

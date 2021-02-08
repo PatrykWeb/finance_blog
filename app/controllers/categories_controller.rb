@@ -1,4 +1,7 @@
 class CategoriesController < ApplicationController
+
+  layout 'admin'
+
   def index
     @category = Category.sort_asc
   end
